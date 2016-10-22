@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ScoreKeeper</string>
+    <string name="two_points">+2 points</string>
+</resources>
