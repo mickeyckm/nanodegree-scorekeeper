@@ -8,55 +8,70 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView scoreTextViewA;
+    private TextView scoreTextViewB;
+    private Integer scoreTeamA;
+    private Integer scoreTeamB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Init scores
+        initScore();
+
+        // Create textviews
+        scoreTextViewA = (TextView) findViewById(R.id.scoreTeamA);
+        scoreTextViewB = (TextView) findViewById(R.id.scoreTeamB);
+    }
+
+    private void initScore() {
+        scoreTeamA = 0;
+        scoreTeamB = 0;
     }
 
     public void reset(View v) {
-        TextView scoreTextViewA = (TextView) findViewById(R.id.scoreTeamA);
-        scoreTextViewA.setText("0");
-        TextView scoreTextViewB = (TextView) findViewById(R.id.scoreTeamB);
-        scoreTextViewB.setText("0");
+        initScore();
+        updateCounter(scoreTextViewA, scoreTeamA);
+        updateCounter(scoreTextViewB, scoreTeamB);
     }
 
-    public void increment(View v, String team, Integer score) {
-        TextView scoreTextView = null;
+    public void updateCounter(TextView textView, Integer score) {
+        textView.setText(String.valueOf(score));
+    }
 
-        if (team.equals("A")) {
-            scoreTextView = (TextView) findViewById(R.id.scoreTeamA);
+    public void score(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.twoPointsButtonA:
+                scoreTeamA += 2;
+                updateCounter(scoreTextViewA, scoreTeamA);
+                break;
+            case R.id.threePointsButtonA:
+                scoreTeamA += 3;
+                updateCounter(scoreTextViewA, scoreTeamA);
+                break;
+            case R.id.freeThrowButtonA:
+                scoreTeamA += 1;
+                updateCounter(scoreTextViewA, scoreTeamA);
+                break;
+
+            case R.id.twoPointsButtonB:
+                scoreTeamB += 2;
+                updateCounter(scoreTextViewB, scoreTeamB);
+                break;
+            case R.id.threePointsButtonB:
+                scoreTeamB += 3;
+                updateCounter(scoreTextViewB, scoreTeamB);
+                break;
+            case R.id.freeThrowButtonB:
+                scoreTeamB += 1;
+                updateCounter(scoreTextViewB, scoreTeamB);
+                break;
+
         }
-        else if (team.equals("B")) {
-            scoreTextView = (TextView) findViewById(R.id.scoreTeamB);
-        }
 
-        Integer currentScore = Integer.parseInt(scoreTextView.getText().toString());
-        currentScore += score;
-        scoreTextView.setText(currentScore.toString());
-    }
-
-    public void twoPointsTeamA(View v) {
-        increment(v, "A", 2);
-    }
-
-    public void threePointsTeamA(View v) {
-        increment(v, "A", 3);
-    }
-
-    public void freeThrowTeamA(View v) {
-        increment(v, "A", 1);
-    }
-
-    public void twoPointsTeamB(View v) {
-        increment(v, "B", 2);
-    }
-
-    public void threePointsTeamB(View v) {
-        increment(v, "B", 3);
-    }
-
-    public void freeThrowTeamB(View v) {
-        increment(v, "B", 1);
     }
 }

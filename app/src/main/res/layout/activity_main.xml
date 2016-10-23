@@ -10,10 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         android:divider="@drawable/separator"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -21,23 +21,23 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/teama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_alignParentTop="true"
-                android:id="@+id/teama"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="5dp"
                 android:text="Team A"
-                android:textSize="20sp"
-                android:layout_marginBottom="5dp"/>
+                android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/scoreTeamA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_below="@id/teama"
-                android:id="@+id/scoreTeamA"
+                android:layout_centerInParent="true"
                 android:text="0"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
 
         </RelativeLayout>
 
@@ -47,23 +47,23 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/teamb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="5dp"
                 android:text="Team B"
-                android:id="@+id/teamb"
-                android:textSize="20sp"
-                android:layout_marginBottom="5dp"/>
+                android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/scoreTeamB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_below="@id/teamb"
-                android:id="@+id/scoreTeamB"
+                android:layout_centerInParent="true"
                 android:text="0"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
 
         </RelativeLayout>
 
@@ -92,31 +92,32 @@
                     android:padding="20dp">
 
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
                         android:id="@+id/twoPointsButtonA"
-                        android:layout_marginBottom="10dp"
-                        android:text="@string/two_points"
-                        android:onClick="twoPointsTeamA"/>
-
-                    <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:onClick="score"
+                        android:text="@string/two_points" />
+
+                    <Button
+                        android:id="@+id/threePointsButtonA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_below="@id/twoPointsButtonA"
-                        android:id="@+id/threebuttona"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginBottom="10dp"
-                        android:text="+3 points"
-                        android:onClick="threePointsTeamA"/>
+                        android:onClick="score"
+                        android:text="+3 points" />
 
                     <Button
+                        android:id="@+id/freeThrowButtonA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/threePointsButtonA"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@id/threebuttona"
-                        android:text="Free Throw"
-                        android:onClick="freeThrowTeamA"/>
+                        android:onClick="score"
+                        android:text="Free Throw" />
 
                 </RelativeLayout>
 
@@ -127,31 +128,32 @@
                     android:padding="20dp">
 
                     <Button
+                        android:id="@+id/twoPointsButtonB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/twobuttonb"
                         android:layout_marginBottom="10dp"
-                        android:text="+2 points"
-                        android:onClick="twoPointsTeamB"/>
+                        android:onClick="score"
+                        android:text="+2 points" />
 
                     <Button
+                        android:id="@+id/threePointsButtonB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/twoPointsButtonB"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@id/twobuttonb"
-                        android:id="@+id/threebuttonb"
                         android:layout_marginBottom="10dp"
-                        android:text="+3 points"
-                        android:onClick="threePointsTeamB"/>
+                        android:onClick="score"
+                        android:text="+3 points" />
 
                     <Button
+                        android:id="@+id/freeThrowButtonB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/threePointsButtonB"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@id/threebuttonb"
-                        android:text="Free throw"
-                        android:onClick="freeThrowTeamB"/>
+                        android:onClick="score"
+                        android:text="Free throw" />
 
                 </RelativeLayout>
 
@@ -165,15 +167,14 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:text="Reset"
-                    android:onClick="reset"/>
+                    android:layout_centerHorizontal="true"
+                    android:onClick="reset"
+                    android:text="Reset" />
 
             </RelativeLayout>
 
         </LinearLayout>
-
 
 
     </ScrollView>
